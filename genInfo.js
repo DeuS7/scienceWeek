@@ -1,22 +1,23 @@
+/*
+* Generates all additional stuff, namely:
+* Exact length of generated sequence
+* Sum of bits, where 1 is 1 and 0 is (-1)
+* First 1000 digits of sequence separated by space
+* The latter is for Matlab
+*/
+
 let fs = require('fs');
 let tech = require('./tech.js');
-/*Change name*/
-let currentAlgo = tech.currentAlgo;
-let currentAlgoInfo = currentAlgo + "/" + currentAlgo + "_info.dat";
-let currentAlgoBin = currentAlgo + "/" + currentAlgo + "_bin.dat";
-let currentAlgoDec = currentAlgo + "/" + currentAlgo + "_dec.dat";
-let currentAlgoSpaces = currentAlgo + "/" + currentAlgo + "_spc.dat";
-/*************/
 
 function generateInfo() {
-	fs.unlink(currentAlgoInfo, ()=>"ok");
-	fs.unlink(currentAlgoSpaces, ()=>"ok");
+	fs.unlink(tech.currentAlgoInfo, ()=>"ok");
+	fs.unlink(tech.currentAlgoSpaces, ()=>"ok");
 
-	let writeStreamInfo = fs.createWriteStream(currentAlgoInfo, {flags: 'a'});
-	let writeStreamSpc = fs.createWriteStream(currentAlgoSpaces, {flags: 'a'});
+	let writeStreamInfo = fs.createWriteStream(tech.currentAlgoInfo, {flags: 'a'});
+	let writeStreamSpc = fs.createWriteStream(tech.currentAlgoSpaces, {flags: 'a'});
 
-	let dataBin = fs.readFileSync(currentAlgoBin, 'ascii');
-	let dataDec = fs.readFileSync(currentAlgoDec, 'ascii');
+	let dataBin = fs.readFileSync(tech.currentAlgoBin, 'ascii');
+	let dataDec = fs.readFileSync(tech.currentAlgoDec, 'ascii');
 	let bitsSum = 0;
 	let counter = 0;
 

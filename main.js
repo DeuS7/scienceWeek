@@ -1,28 +1,28 @@
+/*
+* Main file. Generates sequence.
+* Usage: node main, then genInfo, then putFilesInPlaces
+* Creates two files: decimal and binary representation of generated sequence
+*/
+
 let fs = require('fs');
 let tech = require('./tech.js');
-/*Change name*/
-let currentAlgo = tech.currentAlgo;
-let currentAlgoInfo = currentAlgo + "/" + currentAlgo + "_info.dat";
-let currentAlgoBin = currentAlgo + "/" + currentAlgo + "_bin.dat";
-let currentAlgoDec = currentAlgo + "/" + currentAlgo + "_dec.dat";
-let currentAlgoSpaces = currentAlgo + "/" + currentAlgo + "_spc.dat";
 
 try {
-	fs.mkdirSync(currentAlgo);
+	fs.mkdirSync(tech.currentAlgo);
 } catch(e) {
 	/*console.log("Already exists");*/
 }
-/*************/
-let currentAlgoGen = require(`./${currentAlgo}.js`).gen;
+
+let currentAlgoGen = require(`./${tech.currentAlgo}.js`).gen;
 let fileLength = 0;
 
 function generateSequence(n) {
-	fs.unlink(currentAlgoBin, ()=>"ok");
-	fs.unlink(currentAlgoDec, ()=>"ok");
+	fs.unlink(tech.currentAlgoBin, ()=>"ok");
+	fs.unlink(tech.currentAlgoDec, ()=>"ok");
 
 	let currentNum;
-	let writeStreamBin = fs.createWriteStream(currentAlgoBin, {flags: 'a'});
-	let writeStreamDec = fs.createWriteStream(currentAlgoDec, {flags: 'a'});
+	let writeStreamBin = fs.createWriteStream(tech.currentAlgoBin, {flags: 'a'});
+	let writeStreamDec = fs.createWriteStream(tech.currentAlgoDec, {flags: 'a'});
 
 	//Plus 10% just in case :D
 	while (fileLength < n*1.1) {
@@ -40,4 +40,4 @@ function generateSequence(n) {
 
 
 
-generateSequence(1000);
+generateSequence(1000000);
