@@ -2,6 +2,7 @@
 * Generates all additional stuff, namely:
 * Exact length of generated sequence
 * Sum of bits, where 1 is 1 and 0 is (-1)
+* Inclusion stats
 * First 1000 digits of sequence separated by space
 * The latter is for Matlab
 */
@@ -20,6 +21,7 @@ function generateInfo() {
 	let dataDec = fs.readFileSync(tech.currentAlgoDec, 'ascii');
 	let bitsSum = 0;
 	let counter = 0;
+	let inclusionCounter = {};
 
 	for (let i = 0;i<dataBin.length;i++) {
 		if (dataBin[i] == "0") {
@@ -30,12 +32,23 @@ function generateInfo() {
 
 		counter++;
 	}
-	for (let i = 0;i<(dataDec.length > 1000 ? 1000 : dataDec.length);i++) {
-		tech.addToFile(writeStreamSpc, dataDec[i] + " ");
+	
+	for (let i = 0;i<dataDec.length;i++) {
+		//We only need first 1000 digits
+		if (i < 1000) {
+			tech.addToFile(writeStreamSpc, dataDec[i] + " ");
+		}
+		
+		if (inclusionCounter[dataDec[i]]) {
+			inclusionCounter[dataDec[i]]++;
+		} else {
+			inclusionCounter[dataDec[i]] = 1;
+		}
 	}
 
 	tech.addToFile(writeStreamInfo, `File length: ${counter} \n`);
 	tech.addToFile(writeStreamInfo, `Bits sum: ${Math.abs(bitsSum)} \n`);
+	tech.addToFile(writeStreamInfo, `NumbersInfo: ${JSON.stringify(inclusionCounter)} \n`);
 }
 
 generateInfo();

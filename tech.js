@@ -4,7 +4,7 @@
 * There should be .js file with that name, implementing that algorithm
 */
 
-let currentAlgo = "norm";
+let currentAlgo = "lca";
 let currentAlgoInfo = currentAlgo + "/" + currentAlgo + "_info.dat";
 let currentAlgoBin = currentAlgo + "/" + currentAlgo + "_bin.dat";
 let currentAlgoDec = currentAlgo + "/" + currentAlgo + "_dec.dat";
