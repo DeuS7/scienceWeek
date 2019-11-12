@@ -1,6 +1,6 @@
 function* lcaGen() {
 	//Initially x equals to seconds since epoch
-	let x = new Date() / 1000;
+	let x = new Date() / 1;
 
 	//Params from Java
 	let m = 2 ** 48;
