@@ -5,9 +5,9 @@
 */
 
 let currentAlgo = "research";
-let spcSize = 400000;
+let spcSize = 1000000;
 let spcDigits = 2;
-let sequenceLength = 100000;
+let sequenceLength = 1000000;
 
 let currentAlgoInfo = currentAlgo + "/" + currentAlgo + "_info.dat";
 let currentAlgoBin = currentAlgo + "/" + currentAlgo + "_bin.dat";

@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "alea": "^1.0.0",
     "mersenne-twister": "^1.1.0",
     "nist-randomness-test-suite": "0.0.7",
     "rimraf": "^3.0.0"

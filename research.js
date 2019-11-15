@@ -1,8 +1,10 @@
 let fs = require('fs');
+var Alea = require('alea')
+var prng = new Alea()
 
 function* genRes() {
 	while (true) {
-		yield 156;
+		yield prng().toString().split(".")[1];
 	}
 }
 
