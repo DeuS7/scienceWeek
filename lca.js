@@ -3,7 +3,7 @@ function* lcaGen() {
 	let x = new Date() / 1;
 
 	//Params from Java
-	let m = 2 ** 48;
+	let m = 2 ** 48 - 1;
 	let a = 25214903917;
 	let c =  11;
 

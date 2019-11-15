@@ -5,6 +5,9 @@
 */
 
 let currentAlgo = "lca";
+let spcSize = 400000;
+let spcDigits = 2;
+
 let currentAlgoInfo = currentAlgo + "/" + currentAlgo + "_info.dat";
 let currentAlgoBin = currentAlgo + "/" + currentAlgo + "_bin.dat";
 let currentAlgoDec = currentAlgo + "/" + currentAlgo + "_dec.dat";
@@ -23,12 +26,14 @@ function addToFile(stream, data) {
 }
 
 module.exports = {
-	currentAlgo: currentAlgo, //Write it shorter!
+	currentAlgo: currentAlgo,
 	toBinary: toBinary,
 	addToFile: addToFile,
 	currentAlgoInfo: currentAlgoInfo,
 	currentAlgoBin: currentAlgoBin,
 	currentAlgoDec: currentAlgoDec,
 	currentAlgoSpaces: currentAlgoSpaces,
-	destFolder: destFolder
+	destFolder: destFolder,
+	spcSize: spcSize,
+	spcDigits: spcDigits
 }

@@ -34,9 +34,9 @@ function generateInfo() {
 	}
 	
 	for (let i = 0;i<dataDec.length;i++) {
-		//We only need first 1000 digits
-		if (i < 1000) {
-			tech.addToFile(writeStreamSpc, dataDec[i] + " ");
+		//We only need first tech.spcSize digits
+		if (i < tech.spcSize && i % tech.spcDigits == 0) {
+			tech.addToFile(writeStreamSpc, dataDec.slice(i, i+tech.spcDigits) + " ");
 		}
 		
 		if (inclusionCounter[dataDec[i]]) {
