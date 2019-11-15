@@ -29,18 +29,9 @@ function generateSequence(n) {
 		currentNum = currentAlgoGen.next().value;
 		fileLength += currentNum.toString().length;
 		
-
+		tech.addToFile(writeStreamBin, tech.toBinary(currentNum));
 		tech.addToFile(writeStreamDec, currentNum);
 	}
-
-	/*fileLength = 0;
-
-	while (fileLength < n) {
-		currentNumBin = currentAlgoGenBin.next().value;
-		fileLength++;
-
-		tech.addToFile(writeStreamBin, currentNumBin);
-	}*/
 
 	writeStreamBin.end();
 	writeStreamDec.end();

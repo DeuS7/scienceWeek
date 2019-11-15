@@ -46,13 +46,13 @@ function generateInfo() {
 		}
 	}
 
-	/*tech.addToFile(writeStreamInfo, `File length: ${counter} \n`);
+	tech.addToFile(writeStreamInfo, `File length: ${counter} \n`);
 	tech.addToFile(writeStreamInfo, `Bits sum: ${Math.abs(bitsSum)} \n`);
-	tech.addToFile(writeStreamInfo, `NumbersInfo: ${JSON.stringify(inclusionCounter)} \n`);*/
+	tech.addToFile(writeStreamInfo, `NumbersInfo: ${JSON.stringify(inclusionCounter).replace(/,/g,'\n').replace('{', '\n')} \n`);
 
 	console.log(`File length: ${counter} \n`);
 	console.log(`Bits sum: ${Math.abs(bitsSum)} \n`);
-	console.log(`NumbersInfo: ${JSON.stringify(inclusionCounter).replace(/,/g,'\n')} \n`);
+	console.log(`NumbersInfo: ${JSON.stringify(inclusionCounter).replace(/,/g,'\n').replace('{', '\n')} \n`);
 }
 
 generateInfo();

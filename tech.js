@@ -17,8 +17,8 @@ let currentAlgoSpaces = currentAlgo + "/" + currentAlgo + "_spc.dat";
 let destFolder = "../ScienceWeek";
 
 function toBinary(num) {
-	return (""+num).split("").reduce(function(accum, cur) {
-		return accum += (+cur).toString(2);
+	return num.toString().split("").reduce(function(accum, cur) {
+		return accum += (cur < 5 ? 1 : 0);
 	}, "");
 }
 

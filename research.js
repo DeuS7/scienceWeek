@@ -10,7 +10,5 @@ function* genRes() {
 
 
 let gen = genRes();
-/*let genBin = genMersBin();*/
 
 exports.gen = gen;
-/*exports.genBin = genBin;*/
