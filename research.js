@@ -4,7 +4,7 @@ var prng = new Alea()
 
 function* genRes() {
 	while (true) {
-		yield prng().toString().split(".")[1];
+		yield prng().toString().split(".")[1].slice(0,12);
 	}
 }
 
