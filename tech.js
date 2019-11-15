@@ -4,9 +4,10 @@
 * There should be .js file with that name, implementing that algorithm
 */
 
-let currentAlgo = "lca";
+let currentAlgo = "research";
 let spcSize = 400000;
 let spcDigits = 2;
+let sequenceLength = 100000;
 
 let currentAlgoInfo = currentAlgo + "/" + currentAlgo + "_info.dat";
 let currentAlgoBin = currentAlgo + "/" + currentAlgo + "_bin.dat";
@@ -35,5 +36,6 @@ module.exports = {
 	currentAlgoSpaces: currentAlgoSpaces,
 	destFolder: destFolder,
 	spcSize: spcSize,
-	spcDigits: spcDigits
+	spcDigits: spcDigits,
+	sequenceLength: sequenceLength
 }

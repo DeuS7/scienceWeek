@@ -14,6 +14,7 @@ try {
 }
 
 let currentAlgoGen = require(`./${tech.currentAlgo}.js`).gen;
+let currentAlgoGenBin = require(`./${tech.currentAlgo}.js`).genBin;
 let fileLength = 0;
 
 function generateSequence(n) {
@@ -24,15 +25,22 @@ function generateSequence(n) {
 	let writeStreamBin = fs.createWriteStream(tech.currentAlgoBin, {flags: 'a'});
 	let writeStreamDec = fs.createWriteStream(tech.currentAlgoDec, {flags: 'a'});
 
-	//Plus 10% just in case :D
-	while (fileLength < n*1.1) {
+	while (fileLength < n) {
 		currentNum = currentAlgoGen.next().value;
-		currentNumBin = tech.toBinary(currentNum);
-		fileLength += currentNumBin.length;
+		fileLength += currentNum.toString().length;
+		
 
 		tech.addToFile(writeStreamDec, currentNum);
-		tech.addToFile(writeStreamBin, currentNumBin);
 	}
+
+	/*fileLength = 0;
+
+	while (fileLength < n) {
+		currentNumBin = currentAlgoGenBin.next().value;
+		fileLength++;
+
+		tech.addToFile(writeStreamBin, currentNumBin);
+	}*/
 
 	writeStreamBin.end();
 	writeStreamDec.end();
@@ -40,4 +48,4 @@ function generateSequence(n) {
 
 
 
-generateSequence(1000000);
+generateSequence(tech.sequenceLength);
