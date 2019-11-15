@@ -3,8 +3,8 @@
 * Exact length of generated sequence
 * Sum of bits, where 1 is 1 and 0 is (-1)
 * Inclusion stats
-* First 1000 digits of sequence separated by space
-* The latter is for Matlab
+* Binary digits, separated with space
+* The latter is for Runs test in Matlab
 */
 
 let fs = require('fs');
@@ -24,6 +24,10 @@ function generateInfo() {
 	let inclusionCounter = {};
 
 	for (let i = 0;i<dataBin.length;i++) {
+		if (i < tech.spcSize) {
+			tech.addToFile(writeStreamSpc, dataBin[i] + " ");
+		}
+
 		if (dataBin[i] == "0") {
 			bitsSum--;
 		} else {
@@ -34,11 +38,6 @@ function generateInfo() {
 	}
 	
 	for (let i = 0;i<dataDec.length;i++) {
-		//We only need first tech.spcSize digits
-		if (i < tech.spcSize && i % tech.spcDigits == 0) {
-			tech.addToFile(writeStreamSpc, dataDec.slice(i, i+tech.spcDigits) + " ");
-		}
-		
 		if (inclusionCounter[dataDec[i]]) {
 			inclusionCounter[dataDec[i]]++;
 		} else {

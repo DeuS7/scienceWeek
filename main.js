@@ -1,7 +1,7 @@
 /*
 * Main file. Generates sequence.
 * Usage: node main, then genInfo, then putFilesInPlaces
-* Creates two files: decimal and binary representation of generated sequence
+* Creates two files: decimal and binary sequences of length, specified in tech.js
 */
 
 let fs = require('fs');

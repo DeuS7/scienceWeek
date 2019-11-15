@@ -2,11 +2,12 @@
 * File with all global vars and funcs
 * Change 'currentALgo' var to test different algorithm
 * There should be .js file with that name, implementing that algorithm
+* spcSize - size of the file for matlab.
+* destFolder - where putFilesInPlaces should target
 */
 
 let currentAlgo = "research";
 let spcSize = 1000000;
-let spcDigits = 2;
 let sequenceLength = 1000000;
 
 let currentAlgoInfo = currentAlgo + "/" + currentAlgo + "_info.dat";
@@ -36,6 +37,5 @@ module.exports = {
 	currentAlgoSpaces: currentAlgoSpaces,
 	destFolder: destFolder,
 	spcSize: spcSize,
-	spcDigits: spcDigits,
 	sequenceLength: sequenceLength
 }
