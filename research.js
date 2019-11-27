@@ -2,7 +2,7 @@ let fs = require('fs');
 var Alea = require('alea')
 
 
-let randomData = fs.readFileSync('pi.txt', 'ascii');
+let randomData = fs.readFileSync('random.txt', 'ascii');
 
 function* genRes() {
 	let prng;

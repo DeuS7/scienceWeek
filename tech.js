@@ -6,7 +6,7 @@
 * destFolder - where putFilesInPlaces should target
 */
 
-let currentAlgo = "research";
+let currentAlgo = "lca";
 let spcSize = 1000000;
 let sequenceLength = 1000000;
 
